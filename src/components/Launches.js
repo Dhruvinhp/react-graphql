@@ -38,7 +38,7 @@ const Launches = () => (
       if (error)
         return (
           <Box>
-            <SubText>Error :(</SubText>
+            <SubText>Error :( {error}</SubText>
           </Box>
         );
       return (

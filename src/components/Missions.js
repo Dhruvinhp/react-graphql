@@ -12,11 +12,6 @@ const Missions = () => {
             name
             website
             manufacturers
-            payloads {
-              orbit
-              nationality
-              manufacturer
-            }
           }
         }
       `}
@@ -31,7 +26,7 @@ const Missions = () => {
         if (error)
           return (
             <Box>
-              <SubText>Error :(</SubText>
+              <SubText>Error :({error}</SubText>
             </Box>
           );
         return (
