@@ -1,6 +1,7 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
+import { Box, SubText } from "../static/styles";
 
 const Launches = () => (
   <Query
@@ -27,15 +28,25 @@ const Launches = () => (
       }
     `}
   >
-    {({ loading, error, data, }) => {
-      if (loading) return <p>Loading...</p>;
-      if (error) return <p>Error :(</p>;
+    {({ loading, error, data }) => {
+      if (loading)
+        return (
+          <Box>
+            <SubText>Loading...</SubText>
+          </Box>
+        );
+      if (error)
+        return (
+          <Box>
+            <SubText>Error :(</SubText>
+          </Box>
+        );
       return (
-        <div>
-            <h2>SPACEX Launches</h2>
+        <Box>
+          <SubText>Launches</SubText>
           <ul>
-            {data.launches.map((launch) => (
-              <li key={launch.mission_id}>
+            {data.launches.map((launch, i) => (
+              <li key={i}>
                 <h3>{launch.mission_name}</h3>
                 <p>
                   {launch.rocket.rocket_name} ({launch.rocket.rocket.company})
@@ -46,7 +57,7 @@ const Launches = () => (
               </li>
             ))}
           </ul>
-        </div>
+        </Box>
       );
     }}
   </Query>

@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {NavBar, HeadText, HeadBox, NavLink} from "../static/styles"
 
 const Main = () => {
   return (
-    <>
-      <h1>SpaceX Info</h1>
-      <nav>
-      <Link to='/launches'>Launches</Link>
-      <Link to='/ships'>Ships</Link>
-      <Link to='/missions'>Missions</Link>
-      </nav>
-    </>
+    <HeadBox>
+      <HeadText>SpaceX</HeadText>
+      <NavBar>
+        <NavLink to="/launches">Launches</NavLink>
+        <NavLink to="/ships">Ships</NavLink>
+        <NavLink to="/missions">Missions</NavLink>
+      </NavBar>
+    </HeadBox>
   );
 };
 

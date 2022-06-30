@@ -1,6 +1,7 @@
 import React from "react";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
+import { Box, SubText } from "../static/styles";
 
 const Missions = () => {
   return (
@@ -21,14 +22,24 @@ const Missions = () => {
       `}
     >
       {({ loading, error, data }) => {
-        if (loading) return <p>Loading...</p>;
-        if (error) return <p>Error :(</p>;
+        if (loading)
+          return (
+            <Box>
+              <SubText>Loading...</SubText>
+            </Box>
+          );
+        if (error)
+          return (
+            <Box>
+              <SubText>Error :(</SubText>
+            </Box>
+          );
         return (
-          <div>
-            <h2>Missions</h2>
+          <Box>
+            <SubText>Missions</SubText>
             <ul>
-              {data.missions.map((mission) => (
-                <li key={mission.name}>
+              {data.missions.map((mission, i) => (
+                <li key={i}>
                   <h3>{mission.name}</h3>
                   <a href={mission.website} target="_blank">
                     {mission.website}
@@ -37,7 +48,7 @@ const Missions = () => {
                 </li>
               ))}
             </ul>
-          </div>
+          </Box>
         );
       }}
     </Query>
