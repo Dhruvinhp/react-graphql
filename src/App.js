@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { ApolloProvider } from "react-apollo";
+import ApolloClient from "apollo-boost";
+import Launches from "./components/Launches";
+import Ships from "./components/Ships";
+import {Routes, Route} from "react-router-dom";
+import Missions from "./components/Missions";
+import Main from "./components/Main";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const client = new ApolloClient({
+  uri: "https://api.spacex.land/graphql/",
+});
+
+const App = () => (
+  <ApolloProvider client={client}>
+    <Main/>
+    <Routes>
+      <Route path="/launches" element={<Launches/>} />
+      <Route path="/ships" element={<Ships/>} />
+      <Route path="/missions" element={<Missions/>} />
+    </Routes>
+  </ApolloProvider>
+);
 
 export default App;
