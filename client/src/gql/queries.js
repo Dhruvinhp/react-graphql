@@ -19,7 +19,7 @@ export const getAuthorsQuery = gql`
 `;
 
 export const getBookDetailsQuery = gql`
-  query ($id: String) {
+  query ($id: ID) {
     book(id: $id) {
       id
       name
