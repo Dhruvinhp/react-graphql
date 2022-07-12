@@ -4,11 +4,10 @@ import {NavBar, HeadText, HeadBox, NavLink} from "../static/styles"
 const Main = () => {
   return (
     <HeadBox>
-      <HeadText>SpaceX</HeadText>
+      <HeadText>Reading Lists</HeadText>
       <NavBar>
-        <NavLink to="/launches">Launches</NavLink>
-        <NavLink to="/ships">Ships</NavLink>
-        <NavLink to="/missions">Missions</NavLink>
+        <NavLink to="/books">Books</NavLink>
+        <NavLink to="/authors">Authors</NavLink>
       </NavBar>
     </HeadBox>
   );

@@ -3,16 +3,14 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import { Box, SubText } from "../static/styles";
 
-const Ships = () => {
+const Authors = () => {
   return (
     <Query
       query={gql`
         {
-          ships {
-            model
+          authors {
+            id
             name
-            type
-            status
           }
         }
       `}
@@ -32,14 +30,11 @@ const Ships = () => {
           );
         return (
           <Box>
-            <SubText>Ships</SubText>
+            <SubText>Authors</SubText>
             <ul>
-              {data.ships.map((ship, i) => (
+              {data.authors.map((author, i) => (
                 <li key={i}>
-                  <h3>{ship.name}</h3>
-                  <p>{ship.model}</p>
-                  <p>{ship.type}</p>
-                  <p>{ship.status}</p>
+                  <h3>{author.name}</h3>
                 </li>
               ))}
             </ul>
@@ -50,4 +45,4 @@ const Ships = () => {
   );
 };
 
-export default Ships;
+export default Authors;

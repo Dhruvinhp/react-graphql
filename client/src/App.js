@@ -1,22 +1,20 @@
 import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
-import Launches from "./components/Launches";
-import Ships from "./components/Ships";
+import Books from "./components/Books";
+import Authors from "./components/Authors";
 import {Routes, Route} from "react-router-dom";
-import Missions from "./components/Missions";
 import Main from "./components/Main";
 
 const client = new ApolloClient({
-  uri: "https://api.spacex.land/graphql/",
+  uri: "http://localhost:4000/graphql",
 });
 
 const App = () => (
   <ApolloProvider client={client}>
     <Main/>
     <Routes>
-      <Route path="/launches" element={<Launches/>} />
-      <Route path="/ships" element={<Ships/>} />
-      <Route path="/missions" element={<Missions/>} />
+      <Route path="/books" element={<Books/>} />
+      <Route path="/authors" element={<Authors/>} />
     </Routes>
   </ApolloProvider>
 );
