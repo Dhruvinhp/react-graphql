@@ -3,6 +3,7 @@ import { Query } from "react-apollo";
 import { Box, SubText } from "../static/styles";
 import { getBooksQuery } from "../gql/queries";
 import AddBook from "./AddBook";
+import BookDetails from "./BookDetails";
 
 const Books = () => (
   <>
@@ -34,6 +35,7 @@ const Books = () => (
         );
       }}
     </Query>
+    <BookDetails />
     <AddBook />
   </>
 );
