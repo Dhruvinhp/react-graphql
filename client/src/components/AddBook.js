@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "react-apollo";
-import { AddBox, SubText } from "../static/styles";
+import { AddBox, SubText, Title, Input, Select, Button} from "../static/styles";
 import { getAuthorsQuery, getBooksQuery } from "../gql/queries";
 import { addBookMutation } from "../gql/mutations";
 
@@ -40,8 +40,8 @@ function AddBook() {
       <SubText>Add Book</SubText>
       <form id="add-book" onSubmit={submitForm}>
         <div className="field">
-          <label>Book name:</label>
-          <input
+          <Title>Book name:</Title>
+          <Input
             type="text"
             name="name"
             onChange={(e) => {
@@ -50,8 +50,8 @@ function AddBook() {
           />
         </div>
         <div className="field">
-          <label>Genre:</label>
-          <input
+          <Title>Genre:</Title>
+          <Input
             type="text"
             name="genre"
             onChange={(e) => {
@@ -60,8 +60,8 @@ function AddBook() {
           />
         </div>
         <div className="field">
-          <label>Author:</label>
-          <select
+          <Title>Author:</Title>
+          <Select
             name="author"
             onChange={(e) => {
               setAuthorId(e.target.value);
@@ -69,9 +69,9 @@ function AddBook() {
           >
             <option disabled>Select author</option>
             {displayAuthors()}
-          </select>
+          </Select>
         </div>
-        <button>+</button>
+        <Button>+</Button>
       </form>
     </AddBox>
   );

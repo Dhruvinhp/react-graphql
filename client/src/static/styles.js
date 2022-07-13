@@ -60,3 +60,47 @@ export const NavLink = styled(Link)`
     color: #295e96;
   }
 `;
+
+export const Title = styled.p`
+  font-size: 1.2rem;
+  color: #000;
+`;
+
+export const Input = styled.input`
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: max-content;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const Select = styled.select`
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: max-content;
+  margin: 0 auto;
+  font-size: 1.2rem;
+  &:focus {
+    outline: none;
+  }
+`
+
+
+export const Button = styled.button`
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 100px;
+  margin: 1rem auto;
+  font-size: 1.2rem;
+  cursor: pointer;
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
+`

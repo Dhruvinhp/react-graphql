@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation } from "react-apollo";
-import { AddBox, SubText } from "../static/styles";
+import { AddBox, SubText, Title, Input, Button} from "../static/styles";
 import { getAuthorsQuery } from "../gql/queries";
 import { addAuthorMutation } from "../gql/mutations";
 
@@ -13,11 +13,12 @@ function AddAuthor() {
 
   const submitForm = async (e) => {
     e.preventDefault();
-    const age = parseInt(sAge);
+    const age = +sAge;
     mutateFunction({
       variables: { name, age },
       refetchQueries: [{ query: getAuthorsQuery }],
     });
+    alert("Author added");
   };
 
   return (
@@ -25,8 +26,8 @@ function AddAuthor() {
       <SubText>Add Author</SubText>
       <form id="add-book" onSubmit={submitForm}>
         <div className="field">
-          <label>Author name:</label>
-          <input
+          <Title>Author name:</Title>
+          <Input
             type="text"
             name="name"
             onChange={(e) => {
@@ -35,8 +36,8 @@ function AddAuthor() {
           />
         </div>
         <div className="field">
-          <label>age:</label>
-          <input
+          <Title>age:</Title>
+          <Input
             type="text"
             name="age"
             onChange={(e) => {
@@ -44,7 +45,7 @@ function AddAuthor() {
             }}
           />
         </div>
-        <button>+</button>
+        <Button>+</Button>
       </form>
     </AddBox>
   );
