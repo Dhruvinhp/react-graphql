@@ -5,8 +5,8 @@ export const Box = styled.div`
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 1rem;
-  max-width: 600px;
-  margin: 1rem auto;
+  width: 1000px;
+  margin: 1rem 1rem;
   background-color: #eee;
   overflow: auto;
 `;
@@ -15,7 +15,16 @@ export const HeadBox = styled.div`
   border: 1px solid #ccc;
   border-radius: 10px;
   padding: 1rem;
-  max-width: 600px;
+  width: 1000px;
+  margin: 1rem 1rem;
+  background-color: #ddd;
+`;
+
+export const AddBox = styled.div`
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  max-width: 500px;
   margin: 1rem auto;
   background-color: #ddd;
 `;

@@ -3,7 +3,7 @@ import { Query } from "react-apollo";
 import { Box, SubText } from "../static/styles";
 import { getAuthorsQuery } from "../gql/queries";
 
-const Authors = () => {
+const AuthorList = () => {
   return (
     <>
       <Query query={getAuthorsQuery}>
@@ -21,8 +21,8 @@ const Authors = () => {
               </Box>
             );
           return (
-            <Box>
-              <SubText>Authors</SubText>
+            <Box style={{height:"500px", overflow:"auto"}}>
+              <SubText>Author List</SubText>
               <ul>
                 {data.authors.map((author, i) => (
                   <li key={i}>
@@ -38,4 +38,4 @@ const Authors = () => {
   );
 };
 
-export default Authors;
+export default AuthorList;

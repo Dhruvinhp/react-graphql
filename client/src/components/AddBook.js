@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useMutation, useQuery } from "react-apollo";
-import { Box, SubText } from "../static/styles";
+import { AddBox, SubText } from "../static/styles";
 import { getAuthorsQuery, getBooksQuery } from "../gql/queries";
 import { addBookMutation } from "../gql/mutations";
 
@@ -13,21 +13,8 @@ function AddBook() {
   const [mutateFunction, { bookData, bookLoading, bookError }] =
     useMutation(addBookMutation);
 
-  if (loading)
-    return (
-      <Box>
-        <SubText>Loading...</SubText>
-      </Box>
-    );
-  if (error)
-    return (
-      <Box>
-        <SubText>Error :( {error}</SubText>
-      </Box>
-    );
-
   const displayAuthors = () => {
-    if (data.loading) {
+    if (loading) {
       return <option>Loading authors</option>;
     } else {
       return data.authors.map((author) => {
@@ -49,7 +36,7 @@ function AddBook() {
   };
 
   return (
-    <Box>
+    <AddBox>
       <SubText>Add Book</SubText>
       <form id="add-book" onSubmit={submitForm}>
         <div className="field">
@@ -86,7 +73,7 @@ function AddBook() {
         </div>
         <button>+</button>
       </form>
-    </Box>
+    </AddBox>
   );
 }
 

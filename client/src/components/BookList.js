@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import { useQuery } from "react-apollo";
 import { Box, SubText } from "../static/styles";
 import { getBooksQuery } from "../gql/queries";
-import AddBook from "./AddBook";
 import BookDetails from "./BookDetails";
 
-function Books() {
+function BookList() {
   const { loading, error, data } = useQuery(getBooksQuery);
   const [selectedBook, setSelectedBook] = useState(null);
 
@@ -22,8 +21,8 @@ function Books() {
         </Box>
       )}
       {data && (
-        <Box>
-          <SubText>Books</SubText>
+        <Box style={{height:"500px", overflow:"auto"}}>
+          <SubText>Book List</SubText>
           <ul>
             {data.books.map((book) => (
               <li
@@ -39,9 +38,8 @@ function Books() {
         </Box>
       )}
       <BookDetails bookId={selectedBook} />
-      <AddBook />
     </>
   );
 }
 
-export default Books;
+export default BookList;

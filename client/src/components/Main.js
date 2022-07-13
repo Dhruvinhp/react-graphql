@@ -6,8 +6,8 @@ const Main = () => {
     <HeadBox>
       <HeadText>Reading Lists</HeadText>
       <NavBar>
-        <NavLink to="/books">Books</NavLink>
-        <NavLink to="/authors">Authors</NavLink>
+        <NavLink to="/books">BookList</NavLink>
+        <NavLink to="/authors">AuthorList</NavLink>
       </NavBar>
     </HeadBox>
   );
